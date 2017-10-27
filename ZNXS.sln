@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZNXS", "ZNXS\ZNXS.csproj", "{FF179BF8-B5C0-4D24-85B2-6D79575CEF39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZNXS.Models", "ZNXS.Models\ZNXS.Models.csproj", "{597600F4-D22D-41F3-9642-30265EF1A9C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FF179BF8-B5C0-4D24-85B2-6D79575CEF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF179BF8-B5C0-4D24-85B2-6D79575CEF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF179BF8-B5C0-4D24-85B2-6D79575CEF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{597600F4-D22D-41F3-9642-30265EF1A9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{597600F4-D22D-41F3-9642-30265EF1A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{597600F4-D22D-41F3-9642-30265EF1A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{597600F4-D22D-41F3-9642-30265EF1A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

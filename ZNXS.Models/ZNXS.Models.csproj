@@ -8,4 +8,13 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ChnCharInfo">
+      <HintPath>..\references\ChnCharInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="XUtils">
+      <HintPath>..\references\XUtils.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

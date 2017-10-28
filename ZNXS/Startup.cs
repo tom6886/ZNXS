@@ -23,24 +23,33 @@ namespace ZNXS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DBContext>(options =>
+            services.AddDbContextPool<DBContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc();
+            services.Configure<IISOptions>(options =>
+            {
+            });
+
+            var mvcBuilder = services.AddMvc();
+
+            new MvcConfiguration().ConfigureMvc(mvcBuilder);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //    app.UseBrowserLink();
+            //}
+            //else
+            //{
+            //    app.UseExceptionHandler("/Error");
+            //}
+
+            app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
 
             app.UseStaticFiles();
 

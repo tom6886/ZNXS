@@ -11,5 +11,10 @@ namespace ZNXS.Models
         {
 
         }
+
+        public DbSet<Guser> Guser { get; set; }
+
+        public DbSet<Department> Department { get; set; }
+
     }
 }

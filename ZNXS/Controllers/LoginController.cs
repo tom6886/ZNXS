@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using ZNXS.Models;
 using Utils;
+using ZNXS.Contexts;
+using ZNXS.Models;
 
 namespace ZNXS.Controllers
 {
@@ -49,10 +47,10 @@ namespace ZNXS.Controllers
 
                 if (dw.Status == Status.disable) { return Json(new { code = -6, msg = "此用户所属单位已禁用，请联系管理员" }); }
 
-                //UserContext.department = dw;
-
+                HttpContext.Session.Set("SESSION-DEPARTMENT-KEY", dw);
             }
-            //UserContext.user = user;
+
+            HttpContext.Session.Set("SESSION-ACCOUNT-KEY", user);
 
             //暂时设置为不自动登录
             //remeberMe = "1";

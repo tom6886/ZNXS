@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using ZNXS.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace ZNXS
 {
@@ -33,6 +30,15 @@ namespace ZNXS
             var mvcBuilder = services.AddMvc();
 
             new MvcConfiguration().ConfigureMvc(mvcBuilder);
+
+            // Adds a default redis implementation of IDistributedCache.
+            services.AddDistributedRedisCache(options =>
+            {
+                options.Configuration = Configuration.GetConnectionString("RedisConnection");
+                options.InstanceName = "sessions";
+            });
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +58,8 @@ namespace ZNXS
             app.UseBrowserLink();
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
